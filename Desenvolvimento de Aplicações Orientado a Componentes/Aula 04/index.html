@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Menu de navegação com links para as páginas -->
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#contatos">Contatos</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+    </ul>
+
+    <!-- Conteúdo das páginas -->
+    <div class="container">
+        <!-- Página inicial -->
+        <div id="home" class="page">
+            <h1>Bem-vindo ao meu site!</h1>
+            <p>Este é um exemplo de um site que usa o conceito de SPA (single page application).</p>
+            <p>Para navegar entre as páginas, basta clicar nos links do menu acima.</p>
+        </div>
+
+        <!-- Página de contatos -->
+        <div id="contatos" class="page" style="display:none">
+            <h1>Contatos</h1>
+            <p>Preencha o formulário abaixo para entrar em contato comigo.</p>
+            <!-- Formulário de contato com campos de nome, email e telefone -->
+            <form id="form-contato">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" required><br>
+                <input type="submit" value="Enviar">
+            </form>
+
+            <!-- Tabela para exibir os dados do formulário -->
+            <table id="tabela-contato" style="display:none">
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                </tr>
+                <!-- Linha para exibir os dados do formulário -->
+                <tr id="linha-contato"></tr>
+            </table>
+        </div>
+        <!-- Página sobre -->
+        <div id="sobre" class="page" style="display:none">
+            <h1>Sobre</h1>
+            <p>Este site foi criado por mim, usando o conceito de SPA (single page application).</p>
+            <p>Um SPA é uma aplicação web que roda em uma única página, sem recarregar a página inteira a cada interação
+                do usuário.</p>
+            <p>Isso torna a navegação mais rápida e fluida, além de economizar recursos do servidor.</p>
+
+            <!-- Fazer o link com o arquivo JS -->
+            <script src="script.js"></script>
+
+        </div>
+
+</body>
+
+</html>
