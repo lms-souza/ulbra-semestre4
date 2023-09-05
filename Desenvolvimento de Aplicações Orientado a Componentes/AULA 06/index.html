@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+
+
+
+<body>
+    <h1 id="meuId">teste</h1>
+
+    <section id="sessao">
+
+    </section>
+
+    <script>
+        const h1 = document.getElementById("meuId")
+        h1.style.color = "red"
+
+        const meuP = document.createElement("p")
+        meuP.innerHTML = "Meu paragrafo criado dinamicamente"
+        
+        meuP.style.color = "blue"
+
+        const session = document.querySelector("#sessao")
+        session.appendChild(meuP)
+        
+
+        console.log(document.querySelector("#sessao"))
+
+        const meuBotao = document.createElement("button")
+        meuBotao.innerHTML = "Trocar fundo"
+
+
+        meuBotao.addEventListener("click", function(){
+            const body = document.querySelector("body")
+            body.style.backgroundColor = "black"
+        })
+
+
+        session.appendChild(meuBotao)
+
+        const minhaFuncaoSoma =num1 =>  {
+            return num1 + 3
+            
+        }
+        console.log(minhaFuncaoSoma(1,2))
+        
+    </script>
+    </body>
+
+<script>
+
+</script>
+
+</html>

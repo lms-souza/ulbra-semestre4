@@ -67,6 +67,17 @@ while True:
         exibir_primeiro(fila_prioritarios)
     elif opc == 8:
         exibir_fila(fila_prioritarios)
+    elif opc == 9:
+        if contador_prioritarios < 3 and fila_prioritarios:
+            print(f"Chamando próximo prioritário: {fila_prioritarios[0]}")
+            desenfileirar(fila_prioritarios)
+            contador_prioritarios = 0
+        else:
+            print("Filas vazias.")
+    
+    elif opc == 10:
+        exibir_fila(historico)
+
     elif opc == 0:
         break
     else:
