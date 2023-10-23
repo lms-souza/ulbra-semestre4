@@ -1,0 +1,23 @@
+.headTitle {
+  text-align: center; /* Centralizar o título */
+  color: white; /* Cor do texto branco (para destacar no fundo azul) */
+  margin: 0; /* Remover margens padrão do título */
+  flex: 1; /* Para ocupar o espaço restante e centralizar o título */
+  font-family: 'Outfit', sans-serif;
+}
+.head {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  background-color: #3498db; /* Cor de fundo azul */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra */
+}
+
+.img {
+  height: 110px;
+  width: 110px;
+  text-align: inherit;
+  border-radius: 100px;
+  margin-left: 30px;
+  box-shadow: 3px 3px 20px rgba(255, 255, 255, 0.3);
+}
