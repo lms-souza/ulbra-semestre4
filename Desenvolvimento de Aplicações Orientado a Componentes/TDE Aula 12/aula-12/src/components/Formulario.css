@@ -1,56 +1,46 @@
 .formulario {
-  position: fixed;
-  background: #D9D9D9;
-  font-weight: 700;
-  right: 150px;
-  margin-top: 220px;
+  display: flex;
+  flex-direction: column;
+  background: #d9d9d9;
+  margin-right: 200px;
+  top: 300px;
+  right: -80px;
   border-radius: 10px;
   box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
   padding: 20px;
   font-family: "Outfit", sans-serif;
+  width: 350px;
+  height: 400px;
+  position: absolute;
+  text-align: left;
+}
+
+/* Espaçamento vertical entre os elementos internos */
+.formulario > * {
+  margin-bottom: 9px;
+}
+
+.url-input, .input-pago, .input-egresso, .input {
+  width: 93%; /* Para ocupar a largura total do contêiner pai */
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #ffffff;
+  color: #000000;
   
 }
 
-.url-input {
-  width: 92.9%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background: #FFFFFF;
-  color: #000000;
-  margin-top: 4px;
+.egresso, .pago {
+  display: flex;
+  align-items: center;
+  
 }
 
-.input-pago {
-  width: 92.9%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background: #FFFFFF;
-  color: rgb(0, 0, 0)000;
-  margin-top: 4px;
+.egresso label, .pago label {
+  margin-right: 5px;
 }
 
-.input-egresso {
-  width: 92.9%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background: #FFFFFF;
-  color: #000000;
-  margin-top: 4px;
+.error-message {
+  color: red;
+  padding: 1px;
 }
-
-.input {
-  width: 92.9%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background: #FFFFFF;
-  color: #000000;
-  margin-top: 4px;
-  font-family: 'Outfit', sans-serif;
-}
-
-
-

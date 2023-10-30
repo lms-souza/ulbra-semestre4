@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import './BuscaCep.css';
+import "./BuscaCep.css";
 
 function BuscaCEP() {
   const [cep, setCep] = useState("");

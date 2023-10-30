@@ -5,20 +5,29 @@ import React, { useState } from "react";
 function Formulario() {
   const [people, setPeople] = useState([]);
   const [name, setName] = useState("");
-  const [egressoConvidado, setEgressoConvidado] = useState("Não");
-  const [pago, setPago] = useState("Não");
+  const [egressoConvidado, setEgressoConvidado] = useState(false);
+  const [pago, setPago] = useState(false);
   const [imageUrl, setImageUrl] = useState("");
+  const [phone, setPhone] = useState("");
+  const [nameError, setNameError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
 
   const handleNameChange = (e) => {
     setName(e.target.value);
+    setNameError("");
   };
 
-  const handleEgressoConvidadoChange = (e) => {
-    setEgressoConvidado(e.target.value);
+  const handlePhoneChange = (e) => {
+    setPhone(e.target.value);
+    setPhoneError("");
   };
 
-  const handlePagoChange = (e) => {
-    setPago(e.target.value);
+  const handleEgressoConvidadoChange = () => {
+    setEgressoConvidado(!egressoConvidado);
+  };
+
+  const handlePagoChange = () => {
+    setPago(!pago);
   };
 
   const handleImageUrlChange = (e) => {
@@ -26,11 +35,12 @@ function Formulario() {
   };
 
   const handleCadastrar = () => {
-    if (name && imageUrl) {
+    if (name && phone && imageUrl) {
       const newPerson = {
         name,
-        status: egressoConvidado === "Sim" ? "Egresso/Convidado" : "Estudante",
-        confirmation: pago === "Sim" ? "Confirmado" : "Não confirmado",
+        phone,
+        status: egressoConvidado ? "Sim" : "Não",
+        confirmation: pago ? "Sim" : "Não",
         imageUrl,
       };
 
@@ -40,9 +50,17 @@ function Formulario() {
 
       // Limpar os campos do formulário
       setName("");
-      setEgressoConvidado("Não");
-      setPago("Não");
+      setPhone("");
+      setEgressoConvidado(false);
+      setPago(false);
       setImageUrl("");
+    } else {
+      if (!name) {
+        setNameError("O campo Nome é obrigatório.");
+      }
+      if (!phone) {
+        setPhoneError("O campo Telefone é obrigatório.");
+      }
     }
   };
 
@@ -59,28 +77,52 @@ function Formulario() {
             value={name}
             onChange={handleNameChange}
           />
+          <p className="error-message">{nameError}</p>
+        </div>
+        <div className="phone-input">
+          <label>Telefone:</label>
+          <input
+            className="input"
+            placeholder="Digite seu Telefone"
+            type="text"
+            value={phone}
+            onChange={handlePhoneChange}
+          />
+          <p className="error-message">{phoneError}</p>
         </div>
         <div className="egresso">
           <label>Egresso/Convidado:</label>
-          <select
-            className="input-egresso"
-            value={egressoConvidado}
-            onChange={handleEgressoConvidadoChange}
-          >
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-          </select>
+          <div>
+            <input
+              type="checkbox"
+              checked={egressoConvidado}
+              onChange={handleEgressoConvidadoChange}
+            />
+            <span>Sim</span>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              checked={!egressoConvidado}
+              onChange={handleEgressoConvidadoChange}
+            />
+            <span>Não</span>
+          </div>
         </div>
         <div className="pago">
           <label>Pago:</label>
-          <select
-            className="input-pago"
-            value={pago}
-            onChange={handlePagoChange}
-          >
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-          </select>
+          <div>
+            <input type="checkbox" checked={pago} onChange={handlePagoChange} />
+            <span>Sim</span>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              checked={!pago}
+              onChange={handlePagoChange}
+            />
+            <span>Não</span>
+          </div>
         </div>
         <div className="url">
           <label>URL da Imagem:</label>
@@ -96,15 +138,16 @@ function Formulario() {
           Cadastrar
         </button>
       </div>
-      
+
       <div className="all-cards">
         <div className="cards-container">
           {people.map((person, index) => (
             <li key={index} className="card">
               <img src={person.imageUrl} alt={person.name} />
               <p>Nome: {person.name}</p>
-              <p>Status: {person.status}</p>
-              <p>Confirmação: {person.confirmation}</p>
+              <p>Telefone: {person.phone}</p>
+              <p>Egresso/Convidado: {person.status}</p>
+              <p>Pago: {person.confirmation}</p>
             </li>
           ))}
         </div>
